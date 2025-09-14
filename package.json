@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "dev": "nodemon",
     "build": "tsc -p .",
@@ -29,6 +29,9 @@
     "@types/express": "^5.0.3",
     "@types/node": "^24.4.0",
     "nodemon": "^3.1.10",
+    "serverless-dotenv-plugin": "^6.0.0",
+    "serverless-esbuild": "^1.55.1",
+    "serverless-offline": "^14.4.0",
     "ts-node": "^10.9.2",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2"

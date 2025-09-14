@@ -1,0 +1,42 @@
+# org
+org: frontendweb
+
+# service
+service: node-lambda
+
+
+# provider
+provider:
+  name: aws
+  runtime: nodejs22.x
+  region: ap-south-1
+  stage: dev
+  memorySize: 128
+  timeout: 10
+  environment:
+    NODE_ENV: development
+    AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
+
+
+# plugins
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
+
+# functions
+functions:
+  api:
+    handler: src/handler/handler.server
+    events:
+      - httpApi:
+          path: /api/v1/{proxy+}
+          method: ANY
+
+
+# custom:
+custom:
+  # esbuild:
+  esbuild:
+    configFile: ./esbuild.config.js
+  env:
+    dotenv: true
